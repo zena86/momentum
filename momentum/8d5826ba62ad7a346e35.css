@@ -1,0 +1,315 @@
+:root {
+  --bg-active: #D6E7D2;
+  --bg-2: #DCE9D9;
+  /* --bg-3: #C1E698; */
+  --accent: #C5B358;
+  /* --bg-4: #8BA07E; */
+  --bg-4: #ffffff;
+  --accent-1: #499A18;
+  /* --brand-1: #717171; */
+  --brand-1: #ffffff;
+  --brand-2: #717171;
+   /* --arrow-bg: #ffffff; */
+  --arrow-active: #ffffff;
+  --arrow-bg: #D9D9D9;
+  /* --arrow-active: #AEA1A1; */
+  --transition: all 0.5s ease;
+}
+
+@font-face {
+  font-family: 'Arial-MT';
+  /*src: url("../assets/fonts/Arial-MT.woff");*/ /* Путь к файлу со шрифтом */
+  src: url("assets/fonts/Arial-MT.woff"); /* Путь к файлу со шрифтом */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+  transition: background-image 1s ease-in-out;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 220px;  
+  padding: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.player-icon,
+.slider-icon,
+.change-quote {
+  width: 32px;
+  height: 32px;
+  background-size: 32px 32px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  opacity: .8;
+  cursor: pointer;
+  transition: .3s;  
+}
+
+.player-icon:hover,
+.slider-icon:hover,
+.change-quote:hover {
+  opacity: 1;
+}
+
+.player-icon:active,
+.slider-icon:active,
+.change-quote:active {
+  border: 0;
+  outline: 0;  
+  transform: scale(1.1);
+}
+
+.description-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 260px;  
+  padding: 20px;
+}
+
+.footer-top {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  min-height: 160px;  
+  padding: 20px;
+}
+
+.footer-bottom {
+  padding: 7px 20px;
+  background-color: rgba(255, 255, 255, 0.27);
+}
+
+.footer-body {
+  max-width: 768px;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media(max-width: 533px) {
+
+  .footer-body {
+    width: 70%;
+  }
+}
+
+@media(max-width: 380px) {
+
+  .footer-body {
+    width: 100%;
+  }
+}
+
+.footer-logo img {
+  max-width: 50px;
+  height: 18.6px;
+}
+
+.footer-year {
+  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+  transition: all 0.5s ease;
+}
+
+.footer-github a {
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.footer-github a:hover {
+  text-decoration: underline;
+}
+
+@media(max-width: 900px) {
+
+  .header {
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.tag-select .select-box {
+  margin-right: 0;
+}
+
+.disable {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* This css is for normalizing styles. You can skip this. */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.time,
+.date,
+.greeting-container,
+.quote-container,
+.quotes-component,
+.player,
+.weather,
+.tags-block,
+.links {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.5s ease;
+  min-height: 100px;
+  height: auto;
+  width: auto;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  min-height: 0;
+  height: 0;
+  width: 0;
+  transition: all 0.5s ease;
+}
+
+.time.hidden {
+  font-size: 0;
+  display: none;
+}
+
+.quotes-component.hidden .change-quote,
+.quotes-component.hidden .quote-container,
+.quotes-component.hidden .quote,
+.quotes-component.hidden .author {
+  display: none;
+}
+
+.links.hidden .tooltip-body,
+.links.hidden .links__btn {
+  display: none;
+}
+
+@media(max-width: 768px) {
+
+  .tags-block.hidden {
+    min-height: 0;
+  }
+}
+
+.tags-block.hidden {
+  margin-bottom: 0;
+  position: relative;
+  z-index: -5;
+}
+
+.error-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: #000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.error-bg.show {
+  opacity: 0.8;
+  visibility: visible;
+}
+
+.error-message {
+  color: #717171;
+  padding: 30px 30px 30px 50px;
+}
+
+.error-container {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  z-index: 150;
+  opacity: 0;
+  visibility: hidden;
+  background-color: #fff;
+}
+
+.error-container.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.error-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.error-icon {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  color: red;
+}
